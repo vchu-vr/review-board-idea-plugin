@@ -1,5 +1,5 @@
 # Reviewboard Plugin for Intellij
-
+- [Download plugin .zip archive file](https://github.com/vchu-vr/review-board-idea-plugin/blob/master/review-board-idea-plugin.zip)
 
 Description
 -------------
@@ -30,7 +30,15 @@ This plugin was built with JDK 1.8 and idea 16 version.
 
 How to install it?
 -------------
-Download this plugin from your IDE (Reviewboard Plugin)
+1. Download the [ReviewBoardPlugin.zip archive file](https://github.com/vchu-vr/review-board-idea-plugin/blob/master/review-board-idea-plugin.zip)
+2. Install the plugin
+- In the main menu, open **File | Settings for Windows**, or **IntelliJ IDEA | Preferences...** on the Mac OS X 
+- Select **Plugins** from the left panel
+- Select **“Install plugin from disk…”**
+- In the file navigator, find and select the downloaded ReviewBoardPlugin.zip archive file
+- Make sure the Review Board Plugin has its check-box selected
+- Restart IntelliJ for the changes to take effect
+
 
 Project Setup
 -------------
@@ -48,14 +56,18 @@ This was developed against version 16
 * Click on plus icon at top of second pane -> IntelliJ IDEA Plugin SDK
 * Browse to home of IntelliJ IDEA 16
 * It should be named 'IDEA-IU-XXXX'
-* Open Libraries and create libraries for hg4idea
-    * These will be found in \<IDEA dir\>/plugins/hg4idea/lib/
+* Open Libraries and create library for hg4idea
+    * This will be found in \<IDEA dir\>/plugins/hg4idea/lib/
     * You can add them to the module on creation
-* Click ok
+* Click OK
 
+Building the Plugin
+-------------
+To build the plugin module, in the main menu select **Build | Make Project**, and then **Build | Prepare plugin module 'review-board-idea-plugin' For Deployment**.
+The .zip artifact will be generated in the folder specified in the balloon or events log.
 
 Contributing authors
 -------------
-* Jessica Hoang (https://github.com/AtelierRadius)
-* Andrew Li (https://github.com/andrewkcli)
+* [Jessica Hoang](https://github.com/AtelierRadius)
+* [Andrew Li](https://github.com/andrewkcli)
 * Base plugin by open source author Ritesh Kapoor

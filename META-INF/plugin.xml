@@ -24,6 +24,7 @@
     </vendor>
 
     <description><![CDATA[
+       <p>THIS IS THE RIGHT ZIP</p>
        <p>Review Board Code Review Tool</p>
         <p>Only <strong>Reviewboard 2.0.5 or newer</strong> is supported</p>
         <p>Features:
@@ -46,7 +47,7 @@
                 <li>Updating diff is not supported</li>
             </ul>
         </p>
-        <p>If you find any issues, please report them (please use the <a href="https://github.com/ritesh-kapoor/review-board-idea-plugin/issues">GitHub issue tracker</a> instead of review comments).</p>
+        <p>If you find any issues, please report them (please use the <a href="https://github.com/vchu-vr/review-board-idea-plugin/issues">GitHub issue tracker</a> instead of review comments).</p>
         <p>If you like this plugin, you can support it by writing review and voting for it on IntelliJ plugin repository</a>
         </p>
 
@@ -97,7 +98,7 @@
         <action id="ReviewBoard.PublishReview" class="com.visiercorp.idea.rbplugin.ui.action.ShowReviewBoard"
                 text="Publish Review" icon="/com/visiercorp/idea/rbplugin/resources/reviewBoardLogo.png"
                 description="Publish change to review board">
-            <add-to-group group-id="ChangesViewToolbar" anchor="first"/>
+            <add-to-group group-id="VersionControlsGroup" anchor="first"/>
             <add-to-group group-id="Vcs.Log.ContextMenu" anchor="first"/>
         </action>
     </actions>
