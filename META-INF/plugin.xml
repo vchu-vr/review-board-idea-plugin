@@ -17,7 +17,7 @@
 <idea-plugin version="2">
     <id>com.ritesh.intellij.plugin.reviewboard</id>
     <name>Review board</name>
-    <version>0.1.3</version>
+    <version>0.2.0</version>
     <vendor email="riteshkapoor.opensource@gmail.com" logo="/reviewBoardLogo.png"
             url="https://github.com/ritesh-kapoor/review-board-idea-plugin">
         Ritesh Kapoor
@@ -31,9 +31,12 @@
                 <li>Do reviews directly from your IDE</li>
                 <li>View all, pending or submitted reviews</li>
                 <li>Compare (Diff) changes in review locally</li>
+                <li>Navigate to different versions of the selected review</li>
                 <li>Submit changes to the reviewboard server</li>
                 <li>Comment on reviews
-                    <br/>Usage: Add new comments in file diff window with click on line;</li>
+                    <br>Usage: Add new comments in file diff window with click on line number;
+                    <br>Usage: Add new comments to mutliple lines in file diff window by highlighting lines and clicking line marker;
+                    <br>Usage: Add replies to comments/issue threads;</li>
                 <li>Submit/Discard Reviews</li>
             </ul>
         </p>
@@ -51,32 +54,12 @@
 
     <change-notes><![CDATA[
        <p>Change Notes</p>
-        <p>Version 0.1.3
+        <p>Version 0.2.0
             <ul>
                 <li>Bug fixes</li>
-                <li>Allowing explict path for RBtools</li>
-                <li>Support to mark comments as issues</li>
-            </ul>
-        </p>
-         <p>Version 0.1.2
-            <ul>
-                <li>Bug fixes</li>
-                <li>Support for PyCharm 5</li>
-                <li>Now diff can be generated through rbtools (Option is available in settings)</li>
-            </ul>
-        </p>
-       <p>Version 0.1.1
-            <ul>
-                <li>Bug fixes</li>
-                <li>Adding Subversion support</li>
-                <li>Supporting IDEA 15</li>
-            </ul>
-        </p>
-        <p>Version 0.1.0
-            <ul>
-                <li>Bug fixes</li>
-                <li>Performance improvements</li>
-                <li>Usability improvements</li>
+                <li>Removed explict path for RBtools</li>
+                <li>Selected review will only show the original diff version and up to 25 changed files. This has been updated to show the latest revision and up to a maximum of 200 changed files.</li>
+                <li>Can navigate to previous revisions of review</li>
             </ul>
         </p>
     ]]>
@@ -84,9 +67,7 @@
 
     <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
     <idea-version since-build="131"/>
-    <depends>com.intellij.modules.lang</depends>
-    <depends>Git4Idea</depends>
-    <depends>Subversion</depends>
+    <depends>hg4idea</depends>
 
     <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
          on how to target different products -->
@@ -95,13 +76,13 @@
     -->
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow id="Review Board" anchor="bottom" icon="/reviewBoardLogo.png"
-                    factoryClass="com.ritesh.idea.plugin.ui.toolswindow.ReviewBoardToolsWindow"/>
-        <projectService serviceImplementation="com.ritesh.idea.plugin.state.ConfigurationPersistance"
-                        serviceInterface="com.ritesh.idea.plugin.state.ConfigurationPersistance"/>
-        <projectService serviceImplementation="com.ritesh.idea.plugin.state.DefaultStatePersistance"
-                        serviceInterface="com.ritesh.idea.plugin.state.DefaultStatePersistance"/>
-        <projectConfigurable instance="com.ritesh.idea.plugin.state.SettingsPage"/>
+        <toolWindow id="Review Board" anchor="bottom" icon="/com/visiercorp/idea/rbplugin/resources/reviewBoardLogo.png"
+                factoryClass="com.visiercorp.idea.rbplugin.ui.toolswindow.ReviewBoardToolsWindow"/>
+        <projectService serviceImplementation="com.visiercorp.idea.rbplugin.state.ConfigurationPersistance"
+                    serviceInterface="com.visiercorp.idea.rbplugin.state.ConfigurationPersistance"/>
+        <projectService serviceImplementation="com.visiercorp.idea.rbplugin.state.DefaultStatePersistance"
+                    serviceInterface="com.visiercorp.idea.rbplugin.state.DefaultStatePersistance"/>
+        <projectConfigurable instance="com.visiercorp.idea.rbplugin.state.SettingsPage"/>
     </extensions>
 
     <application-components>
@@ -113,12 +94,11 @@
     </project-components>
 
     <actions>
-        <action id="ReviewBoard.PublishReview" class="com.ritesh.idea.plugin.ui.action.ShowReviewBoard"
-                text="Publish Review" icon="/reviewBoardLogo.png"
+        <action id="ReviewBoard.PublishReview" class="com.visiercorp.idea.rbplugin.ui.action.ShowReviewBoard"
+                text="Publish Review" icon="/com/visiercorp/idea/rbplugin/resources/reviewBoardLogo.png"
                 description="Publish change to review board">
             <add-to-group group-id="ChangesViewToolbar" anchor="first"/>
             <add-to-group group-id="Vcs.Log.ContextMenu" anchor="first"/>
-            <add-to-group group-id="CommittedChangesToolbar" anchor="last" relative-to-action=""/>
         </action>
     </actions>
 
