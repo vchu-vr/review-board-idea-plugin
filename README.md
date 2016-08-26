@@ -56,6 +56,6 @@ This was developed against version 16
 
 Contributing authors
 -------------
-Jessica Hoang (https://github.com/AtelierRadius)
-Andrew Li (https://github.com/andrewkcli)
-Base plugin by open source author Ritesh Kapoor
+* Jessica Hoang (https://github.com/AtelierRadius)
+* Andrew Li (https://github.com/andrewkcli)
+* Base plugin by open source author Ritesh Kapoor
